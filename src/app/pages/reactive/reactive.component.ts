@@ -16,6 +16,7 @@ export class ReactiveComponent implements OnInit {
              ) {
     this.crearFormulario();
     this.cargarDataAlFormulario();
+    this.crearListeners();
   }
 
   ngOnInit(): void {
@@ -79,6 +80,16 @@ export class ReactiveComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
+  crearListeners() {
+    this.forma.valueChanges.subscribe( valor => {
+      console.log(valor);
+    });
+
+    this.forma.statusChanges.subscribe( status => console.log({ status }));
+    this.forma.get('nombre').valueChanges.subscribe( console.log );
+  }
+
+  // tslint:disable-next-line: typedef
   cargarDataAlFormulario() {
     // this.forma.setValue({ // setValue se tiene que cumplir con la estructura predefinida.
     //  reset puede escoger los campor predefinidos.
@@ -113,7 +124,8 @@ export class ReactiveComponent implements OnInit {
     if (this.forma.invalid) {
       return Object.values(this.forma.controls).forEach(control => {
         if (control instanceof FormGroup) {
-          Object.values(control.controls).forEach(control => control.markAsTouched());
+          // tslint:disable-next-line: no-shadowed-variable
+          Object.values(control.controls).forEach( control => control.markAsTouched());
         } else {
           control.markAsTouched();
         }
