@@ -1,0 +1,9 @@
+input.uppercase {
+    text-transform: uppercase;
+}
+
+.centrado {
+    text-align: center;
+    border: 1px dotted #000;
+    padding: 8px;
+}

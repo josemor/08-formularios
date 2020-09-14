@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// Importación del formsModulo para impedir el refresh del boton guardar
-import { FormsModule } from '@angular/forms';
+// Importación del formsModule para impedir el refresh del boton guardar.
+// ReactiveFormsModule: Para la importacion de formulario Reactivos.
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Peticion Http
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +23,8 @@ import { ReactiveComponent } from './pages/reactive/reactive.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

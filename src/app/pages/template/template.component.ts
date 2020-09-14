@@ -10,10 +10,12 @@ import { PaisService } from '../../services/pais.service';
 export class TemplateComponent implements OnInit {
 
   usuario = {
-    nombre: 'Jose',
+    nombre: 'Jose Luis',
     apellido: 'Moreno',
     correo: 'josemoreno@gmail.com',
-    pais: ''
+    pais: 'COL',
+    // tslint:disable-next-line: quotemark
+    genero: "M"
   };
 
   paises: any[] = [];
@@ -28,9 +30,10 @@ export class TemplateComponent implements OnInit {
         nombre: 'Seleccione un pais',
         codigo: ''
       });
-      console.log(this.paises);
+      // console.log(this.paises);
     } );
   }
+
 
   // tslint:disable-next-line: typedef
   guardar( form: NgForm ) {
